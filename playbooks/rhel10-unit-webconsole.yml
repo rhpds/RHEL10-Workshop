@@ -24,28 +24,28 @@
 
 
 
-- hosts: node3
-  become: true
-  tasks:
+# - hosts: node3
+#   become: true
+#   tasks:
 
-    - name: "rhel10-unit-webconsole : dnf install additional packages"
-      ansible.builtin.dnf: 
-        name: cockpit-pcp
-        state: installed
-      register: result
-      retries: 10
-      until: result is succeeded
-      delay: 5
+#     - name: "rhel10-unit-webconsole : dnf install additional packages"
+#       ansible.builtin.dnf: 
+#         name: cockpit-pcp
+#         state: installed
+#       register: result
+#       retries: 10
+#       until: result is succeeded
+#       delay: 5
 
-    - name: "rhel10-unit-webconsole : dnf install cockpit-dashboard for rhel <= 8.3"
-      ansible.builtin.dnf: 
-        name: cockpit-dashboard 
-        state: installed
-      register: result
-      retries: 10
-      until: result is succeeded
-      delay: 5
-      when: ansible_distribution_version is version('8.3','<=')
+#     - name: "rhel10-unit-webconsole : dnf install cockpit-dashboard for rhel <= 8.3"
+#       ansible.builtin.dnf: 
+#         name: cockpit-dashboard 
+#         state: installed
+#       register: result
+#       retries: 10
+#       until: result is succeeded
+#       delay: 5
+#       when: ansible_distribution_version is version('8.3','<=')
 
 
 
